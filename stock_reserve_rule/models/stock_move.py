@@ -30,7 +30,7 @@ class StockMove(models.Model):
             )
         rules = self.env["stock.reserve.rule"]._rules_for_location(location_id)
 
-        forced_package_id = self.package_level_id.package_id or None
+        forced_package_id = package_id or self.package_level_id.package_id or None
         rounding = self.product_id.uom_id.rounding
 
         still_need = need
